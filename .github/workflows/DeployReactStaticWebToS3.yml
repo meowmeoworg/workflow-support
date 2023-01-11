@@ -5,12 +5,13 @@ on:
     inputs:
      envFile:
       description: Env file to deploy
-      type: text
+      type: string
       required: false
       default: '.env.production'
 
 jobs:
   DeployToAWS: 
+    runs-on: ubuntu-latest
     steps: 
     - uses: actions/checkout@master
     - name: Install Node
