@@ -37,7 +37,7 @@ jobs:
             fi
             export NODE_OPTIONS=--openssl-legacy-provider && npm install --legacy-peer-deps && \
             npm i -g env-cmd && \
-            CI=false env-cmd -f ${ENV} npm run build
+            export NODE_OPTIONS=--openssl-legacy-provider && CI=false env-cmd -f ${ENV} npm run build
    #Cloudfront cache was disabled, so clearing cloudfront cache is unnecessary
    #TODO: Optimize s3 sync to reduce cost everytime workflow runs.  
     - name: Deploy to s3
