@@ -35,7 +35,7 @@ jobs:
             else 
              ENV=${{inputs.envFile}}
             fi
-            npm install --legacy-peer-deps && \
+            export NODE_OPTIONS=--openssl-legacy-provider && npm install --legacy-peer-deps && \
             npm i -g env-cmd && \
             CI=false env-cmd -f ${ENV} npm run build
    #Cloudfront cache was disabled, so clearing cloudfront cache is unnecessary
